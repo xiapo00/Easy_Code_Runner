@@ -16,10 +16,12 @@ for item in L[0:-1]:
 if '.cpp' in name:
     index = -4
     text = 'pp'
+    program = 'g++'
 else:
     index = -2
     text = ''
-call('g++ "%s" -o "%s"' % (cppfile, cppfile[0:index]))
+    program = 'gcc'
+call('%s "%s" -o "%s"' % (program, cppfile, cppfile[0:index]))
 to_bat = '%s\npause' % (path + name[0:index])
 call('%s.exe' % cppfile[0:index])
 print('\n-------------c%sfile finish-------------\n' % text)
